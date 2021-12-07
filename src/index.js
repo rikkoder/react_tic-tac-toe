@@ -38,23 +38,6 @@ class Board extends React.Component {
     return (
       <div> 
 				{sqrs}
-			{
-//         <div className="board-row">
-//           {this.renderSquare(0)}
-//           {this.renderSquare(1)}
-//           {this.renderSquare(2)}
-//         </div>
-//         <div className="board-row">
-//           {this.renderSquare(3)}
-//           {this.renderSquare(4)}
-//           {this.renderSquare(5)}
-//         </div>
-//         <div className="board-row">
-//           {this.renderSquare(6)}
-//           {this.renderSquare(7)}
-//           {this.renderSquare(8)}
-//         </div>
-			}
       </div>
     );
   }
@@ -78,7 +61,7 @@ class Game extends React.Component {
 		const hist = this.state.history.slice(0, this.state.moveNo+1);
 		const curr = hist[hist.length-1];
 		const sqrs = curr.squares.slice();
-		let wins = this.state.wins.slice();
+		let wins = Array(9).fill(null);
 		if (findWinner(sqrs, wins) || sqrs[i]) return;
 
 		sqrs[i] = (this.state.xTurn ? 'X': 'O');
